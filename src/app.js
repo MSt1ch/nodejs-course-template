@@ -5,6 +5,7 @@ const YAML = require('yamljs');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
+const { logUrl } = require('./middlewares/');
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
@@ -21,12 +22,23 @@ app.use('/', (req, res, next) => {
   next();
 });
 
+app.use(logUrl);
+
 app.use('/users', userRouter);
 app.use('/boards', boardRouter);
-app.use('/boards/:boardId/tasks', (req, res, next) => {
-  req.boardId = req.params.boardId;
-  next();
-},
-    taskRouter);
+app.use(
+  '/boards/:boardId/tasks',
+  (req, res, next) => {
+    req.boardId = req.params.boardId;
+    next();
+  },
+  taskRouter
+);
+
+// test uncaughtException
+//
+// setTimeout(() => {
+//   throw new Error('uncaughtException Oops!');
+// }, 2000);
 
 module.exports = app;

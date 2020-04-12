@@ -1,0 +1,4 @@
+{"level":"info","message":"{\"url\":\"/users/8cd02397-805d-4743-993f-352ada6c309\",\"query\":{},\"body\":{}}","timestamp":"2020-04-12 16:01:27"}
+{"level":"info","message":"{\"url\":\"/users/8cd02397-805d-4743-993f-352ada6c309c\",\"query\":{},\"body\":{}}","timestamp":"2020-04-12 16:01:48"}
+{"level":"info","message":"{\"url\":\"/users\",\"query\":{},\"body\":{\"name\":\"string\",\"login\":\"string\",\"password\":\"string\"}}","timestamp":"2020-04-12 16:01:57"}
+{"level":"info","message":"{\"url\":\"/users/6c6d5975-b61a-431d-a61f-930fa60a12c8\",\"query\":{},\"body\":{}}","timestamp":"2020-04-12 16:02:06"}
