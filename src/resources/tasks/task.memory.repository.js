@@ -1,5 +1,6 @@
 const Task = require('./task.model');
 let tasks = require('../../mockData/tasks');
+const createError = require('http-errors');
 
 const getTasksByBoardId = async boardId => {
   return tasks.filter(task => task.boardId === boardId);
@@ -12,7 +13,11 @@ const createNewTask = async (boardId, task) => {
 };
 
 const getTaskById = async id => {
-  return tasks.find(task => task.id === id);
+  const task = tasks.find(taskData => taskData.id === id);
+  if (task === undefined) {
+    throw new createError(404, `Task ${id} not found`);
+  }
+  return task;
 };
 
 const updateTaskById = async (id, data) => {

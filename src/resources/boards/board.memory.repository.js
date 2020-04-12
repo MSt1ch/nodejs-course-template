@@ -1,5 +1,6 @@
 const Board = require('./board.model');
 let boards = require('../../mockData/boards');
+const createError = require('http-errors');
 
 const getAll = async () => {
   return boards;
@@ -12,7 +13,11 @@ const createNewBoard = async board => {
 };
 
 const getBoardById = async id => {
-  return boards.find(board => board.id === id);
+  const board = boards.find(boardData => boardData.id === id);
+  if (board === undefined) {
+    throw new createError(404, `Board ${id} not found`);
+  }
+  return board;
 };
 
 const updateBoardById = async (id, data) => {
