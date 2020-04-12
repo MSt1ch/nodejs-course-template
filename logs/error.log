@@ -36,3 +36,59 @@
 { level: 'error',
   message: 'Unhandled rejection: Oops!',
   timestamp: '2020-04-12 18:52:18' }
+{ level: 'error',
+  message: 'Unhandled rejection: Oops!',
+  timestamp: '2020-04-12 18:55:07' }
+{ level: 'error',
+  message: 'Unhandled rejection: Oops!',
+  timestamp: '2020-04-12 18:57:04' }
+{ level: 'error',
+  message:
+   'Uncaught exception error: listen EADDRINUSE: address already in use :::4000',
+  timestamp: '2020-04-12 18:57:25' }
+{ level: 'error',
+  message:
+   'Uncaught exception error: listen EADDRINUSE: address already in use :::4000',
+  timestamp: '2020-04-12 18:57:34' }
+{ level: 'error',
+  message: 'Task 1348bce8-976d-43b0-9141-26467d6eae9b not found',
+  timestamp: '2020-04-12 18:57:44' }
+{ level: 'error',
+  message: 'Board 47870379-6064-473a-ba0f-b60fae9cfdf6 not found',
+  timestamp: '2020-04-12 18:57:44' }
+{ level: 'error',
+  message: 'Task e5edd379-f346-49d2-9da6-91b223ed8e2b not found',
+  timestamp: '2020-04-12 18:57:44' }
+{ level: 'error',
+  message: 'Task 3df7abf6-4d09-4ef4-b941-fffe9a8c800e not found',
+  timestamp: '2020-04-12 18:57:44' }
+{ level: 'error',
+  message: 'Task e44915be-eb40-4348-9400-5f66ce7d5513 not found',
+  timestamp: '2020-04-12 18:57:44' }
+{ level: 'error',
+  message: 'Task b1fb2b96-3cbb-4ff1-9ae4-75e312e89a3e not found',
+  timestamp: '2020-04-12 18:57:44' }
+{ level: 'error',
+  message: 'Task 32e52e95-643a-400f-aea2-39476ee3c393 not found',
+  timestamp: '2020-04-12 18:57:44' }
+{ level: 'error',
+  message: 'Board 47870379-6064-473a-ba0f-b60fae9cfdf6 not found',
+  timestamp: '2020-04-12 19:04:90' }
+{ level: 'error',
+  message: 'Task 2eee14ff-dc9c-499c-97d5-6a279ec21d6e not found',
+  timestamp: '2020-04-12 19:04:91' }
+{ level: 'error',
+  message: 'Task a55b8d29-2929-42a5-9210-208bfe522bc3 not found',
+  timestamp: '2020-04-12 19:04:94' }
+{ level: 'error',
+  message: 'Task 5edc5ad1-fd32-459d-9741-9ce210b92367 not found',
+  timestamp: '2020-04-12 19:04:94' }
+{ level: 'error',
+  message: 'Task 740f6014-eb78-480a-aea2-386b358a557a not found',
+  timestamp: '2020-04-12 19:04:94' }
+{ level: 'error',
+  message: 'Task ea22ce2e-b39d-4164-a6d6-08cda664a72c not found',
+  timestamp: '2020-04-12 19:04:95' }
+{ level: 'error',
+  message: 'Task 240072d6-fad9-48be-9770-6ade28c332b9 not found',
+  timestamp: '2020-04-12 19:04:95' }

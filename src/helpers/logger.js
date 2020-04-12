@@ -15,7 +15,7 @@ const logger = createLogger({
       filename: errorLog,
       level: 'error',
       format: format.combine(
-        format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        format.timestamp({ format: 'YYYY-MM-DD HH:MM:SS' }),
         format.uncolorize(),
         format.prettyPrint()
       )
@@ -24,7 +24,7 @@ const logger = createLogger({
       filename: infoLog,
       level: 'info',
       format: format.combine(
-        format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        format.timestamp({ format: 'YYYY-MM-DD HH:MM:SS' }),
         format.uncolorize(),
         format.prettyPrint()
       )

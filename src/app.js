@@ -59,6 +59,6 @@ app.use(errorHandler);
 
 // test unhandledRejection
 
-Promise.reject(Error('Oops!'));
+// Promise.reject(Error('Oops!'));
 
 module.exports = app;
