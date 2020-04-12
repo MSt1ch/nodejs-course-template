@@ -1,4 +1,5 @@
 let users = require('../../mockData/users');
+const createError = require('http-errors');
 const User = require('./user.model');
 
 const getAll = async () => {
@@ -14,10 +15,7 @@ const createNewUser = async userData => {
 const getUserById = async id => {
   const user = users.find(userData => userData.id === id);
   if (user === undefined) {
-    throw {
-      status: 404,
-      message: `User with id ${id} doesn't exist!`
-    };
+    throw new createError(404, `User with id ${id} doesn't exist!`);
   }
   return user;
 };

@@ -2,7 +2,7 @@ const { createLogger, transports, format } = require('winston');
 const path = require('path');
 
 const errorLog = path.join(__dirname, '../../logs/error.log');
-const infoLog = path.join(__dirname, '../../logs/error.log');
+const infoLog = path.join(__dirname, '../../logs/info.log');
 
 const logger = createLogger({
   level: 'silly',
@@ -17,7 +17,7 @@ const logger = createLogger({
       format: format.combine(
         format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
         format.uncolorize(),
-        format.json()
+        format.prettyPrint()
       )
     }),
     new transports.File({
@@ -26,7 +26,7 @@ const logger = createLogger({
       format: format.combine(
         format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
         format.uncolorize(),
-        format.json()
+        format.prettyPrint()
       )
     })
   ]

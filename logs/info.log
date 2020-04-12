@@ -1,0 +1,16 @@
+{ level: 'info',
+  message:
+   '{"url":"/users","query":{},"body":{"name":"string","login":"string","password":"string"}}',
+  timestamp: '2020-04-12 16:08:15' }
+{ level: 'info',
+  message:
+   '{"url":"/users/6c6d5975-b61a-431d-a61f-930fa60a12c8","query":{},"body":{}}',
+  timestamp: '2020-04-12 16:08:41' }
+{ level: 'info',
+  message:
+   '{"url":"/users/6c6d5975-b61a-431d-a61f-930fa60a12c8","query":{},"body":{}}',
+  timestamp: '2020-04-12 16:15:31' }
+{ level: 'info',
+  message:
+   '{"url":"/users/6c6d5975-b61a-431d-a61f-930fa60a12c8","query":{},"body":{}}',
+  timestamp: '2020-04-12 16:30:37' }
