@@ -1,35 +1,32 @@
 const router = require('express').Router();
 const taskService = require('./task.service');
+const Task = require('./task.model');
 const { catchErrors } = require('../../middlewares/');
 
 router
   .route('/')
   .get(
     catchErrors(async (req, res) => {
-      res.status(200).json(await taskService.getTasksByBoardId(req.boardId));
+      const { boardId } = req;
+      const tasks = await taskService.getTasksByBoardId(boardId);
+      res.status(200).json(tasks.map(Task.toResponse));
     })
   )
   .post(
-    catchErrors(async (req, res, next) => {
+    catchErrors(async (req, res) => {
       const { boardId, body } = req;
       const task = await taskService.createNewTask(boardId, body);
-      if (task) {
-        return res.status(200).json(task);
-      }
-      return next({ status: 400, message: 'Bad request' });
+      return res.status(200).json(Task.toResponse(task));
     })
   );
 
 router
   .route('/:taskId')
   .get(
-    catchErrors(async (req, res, next) => {
+    catchErrors(async (req, res) => {
       const { taskId } = req.params;
       const task = await taskService.getTaskById(taskId);
-      if (task) {
-        return res.status(200).json(task);
-      }
-      return next({ status: 404, message: 'Task not found' });
+      return res.status(200).json(Task.toResponse(task));
     })
   )
   .put(
@@ -37,20 +34,17 @@ router
       const { body } = req;
       const { taskId } = req.params;
       const task = await taskService.updateTaskById(taskId, body);
-      if (task) {
-        return res.status(200).json(task);
+      if (task.ok === 1) {
+        return res.status(200).json(Task.toResponse(task));
       }
       return next({ status: 404, message: 'Task not found' });
     })
   )
   .delete(
-    catchErrors(async (req, res, next) => {
+    catchErrors(async (req, res) => {
       const { taskId } = req.params;
-      const task = await taskService.deleteTask(taskId);
-      if (task) {
-        return res.status(204).json({ message: 'The task has been deleted' });
-      }
-      return next({ status: 404, message: 'Task not found' });
+      await taskService.deleteTask(taskId);
+      res.status(204).json({ message: 'The task has been deleted' });
     })
   );
 

@@ -8,7 +8,7 @@ router
   .get(
     catchErrors(async (req, res) => {
       const boards = await boardsService.getAll();
-      res.status(200).json(boards);
+      res.status(200).json(boards.map(Board.toResponse));
     })
   )
   .post(
@@ -38,8 +38,8 @@ router
         req.params.id,
         req.body
       );
-      if (board) {
-        return res.status(200).json(board);
+      if (board.ok === 1) {
+        return res.status(200).json(Board.toResponse(board));
       }
       return next({ status: 400, message: 'Bad request' });
     })

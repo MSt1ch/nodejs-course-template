@@ -11,7 +11,7 @@ const createNewUser = async userData => {
 
 const getUserById = async id => {
   const user = await User.findOne({ _id: id }).exec();
-  if (user === undefined) {
+  if (!user) {
     throw new createError(404, `User with id ${id} doesn't exist!`);
   }
   return user;
