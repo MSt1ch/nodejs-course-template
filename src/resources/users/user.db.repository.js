@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const User = require('./user.model');
+const { hashGenerator } = require('../../helpers');
 
 const getAll = async () => {
   return await User.find({});
@@ -18,11 +19,24 @@ const getUserById = async id => {
 };
 
 const updateUserById = async (id, data) => {
-  return await User.updateOne({ _id: id }, data).exec();
+  const { name, login, password } = data;
+  const hashedPassword = await hashGenerator(password);
+  return await User.updateOne(
+    { _id: id },
+    {
+      name,
+      login,
+      password: hashedPassword
+    }
+  ).exec();
 };
 
 const deleteUserById = async id => {
   return (await User.deleteOne({ _id: id })).deletedCount;
+};
+
+const findByLogin = async login => {
+  return await User.findOne({ login }).exec();
 };
 
 module.exports = {
@@ -30,5 +44,6 @@ module.exports = {
   createNewUser,
   getUserById,
   updateUserById,
-  deleteUserById
+  deleteUserById,
+  findByLogin
 };

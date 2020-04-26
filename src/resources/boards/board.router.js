@@ -29,7 +29,7 @@ router
       if (board) {
         return res.status(200).json(Board.toResponse(board));
       }
-      return next({ status: 404, message: 'Board not found' });
+      // return next({ status: 404, message: 'Board not found' });
     })
   )
   .put(
@@ -50,7 +50,7 @@ router
       if (status) {
         return res.status(204).json({ message: 'The board has been deleted' });
       }
-      return next({ status: 404, message: 'Board not found' });
+      // return next({ status: 404, message: 'Board not found' });
     })
   );
 

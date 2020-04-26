@@ -5,7 +5,8 @@ const YAML = require('yamljs');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
-const { logUrl, errorHandler, errorLog } = require('./middlewares/');
+const loginRouter = require('./resources/login/login.router');
+const { logUrl, errorHandler, errorLog, auth, notExistingPagesError } = require('./middlewares/');
 const { logger } = require('./helpers');
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
@@ -38,16 +39,19 @@ process
     });
   });
 
-app.use('/users', userRouter);
-app.use('/boards', boardRouter);
+app.use('/login', loginRouter);
+app.use('/users', auth, userRouter);
+app.use('/boards', auth, boardRouter);
 app.use(
   '/boards/:boardId/tasks',
+  auth,
   (req, res, next) => {
     req.boardId = req.params.boardId;
     next();
   },
   taskRouter
 );
+// app.use('*', auth, notExistingPagesError);
 app.use(errorLog);
 app.use(errorHandler);
 
