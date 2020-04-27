@@ -9,14 +9,12 @@ const auth = async (req, res, next) => {
     if (!authHeader) {
       throw new createError.Unauthorized('Unauthorized');
     }
-    console.log('Authorization:::: ', req.header('Authorization').split(' ')[1]);
     const token = req.header('Authorization').split(' ')[1];
     if (!token) {
       throw new createError.Unauthorized('Unauthorized');
     }
 
     const data = jwt.verify(token, JWT_SECRET_KEY);
-    console.log('data, ', data);
     const user = await User.findOne({ _id: data.userId, token });
     if (!user) {
       throw new createError.Unauthorized('Unauthorized');

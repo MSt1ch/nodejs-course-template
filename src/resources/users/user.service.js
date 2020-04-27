@@ -18,7 +18,6 @@ const deleteUserById = async id => {
 
 const findByLogin = async (login, password) => {
   const user = await usersRepo.findByLogin(login);
-  console.log('useruseruseruser', user);
   if (!user) {
     throw new createError.Forbidden(`User with ${login} doesn't exist`);
   }

@@ -51,7 +51,7 @@ app.use(
   },
   taskRouter
 );
-// app.use('*', auth, notExistingPagesError);
+app.use('*', auth, notExistingPagesError);
 app.use(errorLog);
 app.use(errorHandler);
 
